@@ -9,7 +9,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
     Button threePointsButton,threePointsButtonB;
     Button twoPointsButton,twoPointsButtonB;
-    Button onePointsButton,onePointsButtonB;
+    Button onePointsButton,onePointsButtonB,resetBtn;
     int  scoreTeamA = 0;
     int  scoreTeamB = 0;
 
@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
         threePointsButtonB = findViewById(R.id.threePointsButtonB);
         twoPointsButtonB = findViewById(R.id.twoPointsButtonB);
         onePointsButtonB = findViewById(R.id.onePointsButtonB);
+
+        resetBtn = findViewById(R.id.resetButton);
 
         threePointsButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,6 +75,16 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 scoreTeamB += 1;
                 displayForTeamB(scoreTeamB);
+            }
+        });
+
+        resetBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                scoreTeamB = 0;
+                scoreTeamA = 0;
+                displayForTeamA(0);
+                displayForTeamB(0);
             }
         });
 
